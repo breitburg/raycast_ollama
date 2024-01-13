@@ -93,7 +93,7 @@ export function AnswerView(props: props): JSX.Element {
    * @returns {Promise<void>}
    */
   async function Inference(query: string, images: string[] | undefined = undefined): Promise<void> {
-    await showToast({ style: Toast.Style.Animated, title: "🧠 Performing Inference." });
+    await showToast({ style: Toast.Style.Animated, title: "Performing Inference..." });
     setLoading(true);
     const body = {
       model: ModelGenerate?.name,
@@ -108,7 +108,7 @@ export function AnswerView(props: props): JSX.Element {
         });
 
         emiter.on("done", async (data) => {
-          await showToast({ style: Toast.Style.Success, title: "🧠 Inference Done." });
+          await showToast({ style: Toast.Style.Success, title: "Inference Completed" });
           setAnswerMetadata(data);
           setLoading(false);
         });
